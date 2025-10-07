@@ -1,0 +1,939 @@
+/* ESTILO GERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: black;
+    height: 100vh;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+}
+
+/* Padrão de espaçamento entre todas as seções */
+section {
+    padding: 100px 8%; /* mesmo valor para todas */
+}
+
+/* Remover paddings específicos duplicados */
+section.especialidades,
+section.basicos
+section.sobre,
+section.port,
+section.mensagens,
+section.formulario {
+    padding: 100px 10%;
+}
+
+.contato button{
+    padding: 10px 40px;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #a864bd;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}  
+
+.contato button:hover{
+    box-shadow: 0px 0px 8px hsl(281, 55%, 37%);
+    transform: scale(1.05);
+}
+
+h2.titulo{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+h2.titulo span{
+    color:#a864bd;
+}
+
+/* ESTILO DO CABEÇALHO */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between; /* logo à esquerda, menu à direita */
+    align-items: center;
+    background: transparent;
+    
+}
+section {
+    scroll-margin-top: 80px; /* altura do header */
+}
+
+
+header .logo img {
+    max-width: 80px; /* ajuste do tamanho da logo */
+}
+
+
+/* Garantir que a logo fique no canto esquerdo */
+header .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Garantir que o menu fique no canto direito */
+header .btn-abrir-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+}
+
+header a{ 
+    color: #f1f1f1;
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s;
+   
+}
+
+header a:hover{
+    color: #fff;
+    transform: scale(1.05);
+}
+
+header nav ul{
+    list-style-type: none;
+}
+
+/*ESTILO DO MENU MOBILE*/
+
+.btn-abrir-menu {
+    display: block;
+    cursor: pointer;
+}
+
+.btn-abrir-menu i{
+    color: #9567a3;
+    font-size: 40px;
+}
+
+.menu-mobile{
+    background: linear-gradient(to bottom, #1a1a1a, #000);
+    height: 300vh;
+    width: 300px;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    z-index: 99999;
+    transition: right 0.4s ease-in-out;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 15px rgba(0, 0, 0,0.4);   
+}
+
+.menu-mobile.abrir-menu{
+    right: 0;
+}
+
+.menu-mobile .btn-fechar{
+    align-items: flex-end;
+    z-index: 100000;
+}
+
+
+.menu-mobile .btn-fechar{
+    align-items: flex-end;
+}
+
+.menu-mobile .btn-fechar i{
+    color: #9567a3;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu-mobile nav ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.menu-mobile nav ul li a{
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #2e2e2e;
+    transition: 0.3s;
+
+}
+
+.menu-mobile nav ul li a:hover {
+    background: linear-gradient(90deg, #dca2f7, #924e92);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.overlay-menu{
+    background-color: rgba(0, 0, 0,0.6);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 88888;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block;
+}
+
+@media screen and (max-width: 1020px) {
+    .menu-mobile {
+        width: 80%; /* mais proporcional no celular */
+        max-width: 280px;
+    }
+
+    .menu-mobile nav ul li a {
+        font-size: 18px;
+        padding: 12px 0;
+    }
+
+    .btn-abrir-menu i {
+        font-size: 32px;
+    }
+}
+
+
+/* ESTILO DO TOPO DO SITE */
+
+section.topo-do-site {
+    padding: 0;
+    width: 100%;
+    position: relative;
+    height: 100vh; /* Define a altura para preencher a tela inteira */
+    overflow: hidden; /* Garante que a imagem não ultrapasse as bordas */
+}
+
+.topo-do-site .img-topo-site {
+    position: absolute; /* Posição absoluta para cobrir a seção */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.topo-do-site .img-topo-site img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* A imagem irá cobrir todo o espaço, sem distorcer */
+    object-position: 80% 50%; /* Ajuste a posição da imagem para focar no rosto */
+}
+
+.topo-do-site .txt-topo-do-site {
+    position: absolute; /* Posiciona o texto sobre a imagem */
+    top: 50%;
+    left: 10%; /* Ajusta o texto para a esquerda, como no exemplo */
+    transform: translateY(-50%); /* Centraliza verticalmente o texto */
+    color: #fff;
+    text-align: left; /* Alinha o texto à esquerda */
+    z-index: 1; /* Garante que o texto fique acima da imagem */
+    width: 40%; /* Limita a largura do texto para melhor leitura */
+}
+
+.topo-do-site h1 {
+    font-size: 50px;
+    line-height: 55px;
+    margin-bottom: 10px;
+}
+
+.topo-do-site h2 {
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.topo-do-site .txt-topo-do-site h1 span {
+    color: #ce8ce4;
+}
+
+.topo-do-site .txt-topo-do-site p {
+    margin: 20px 0;
+}
+
+/* Removido o efeito de flutuação para o topo do site, pois não se encaixa no novo layout */
+@keyframes flutuar {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+/* MEDIA QUERY para dispositivos móveis */
+@media screen and (max-width: 1020px) {
+    .topo-do-site .txt-topo-do-site {
+        width: 100%; /* Ocupa mais espaço em telas menores */
+        text-align: center; /* Centraliza o texto */
+        left: 18%;
+        transform: translate(-50%, -50%); /* Centraliza horizontal e verticalmente */
+    }
+
+    .topo-do-site h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+
+    .topo-do-site h2 {
+        font-size: 20px;
+    }
+}
+
+
+/* Estilos das especialidades */
+
+section.especialidades{
+    padding: 40px 4%;
+    text-align: center;
+    padding: 100px;
+}
+
+section.especialidades .flex{
+    gap: 80px;
+
+}
+
+.especialidades .especialidades-box{
+    color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 45px;
+    transition: .2s;
+}
+
+.especialidades .especialidades-box:hover{
+    transform: scale(1.05);  
+    
+}
+
+.especialidades .especialidades-box i{
+    font-size: 50px;
+    color:#a864bd;
+
+}
+
+.especialidades .especialidades-box p{
+    font-size: 13px;
+    margin: 15px 0;
+
+}
+
+/* Estilo do sobre */
+
+section.sobre{
+    padding: 100px 4%;
+   
+}
+
+section.sobre .flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.sobre .txt-sobre{
+    color: #fff;
+}
+
+.sobre .txt-sobre h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre h2 span{
+    color:#a864bd;
+    display: block;
+}
+
+.sobre .txt-sobre p{
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.sobre .txt-sobre p img{
+    gap: 100px;
+    margin: 80px;
+    padding: 10px;
+}
+
+
+
+
+
+.img-sobre {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-sobre img {
+    max-width: 100%;
+    width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #fdfdfd80;
+    transition: transform 0.3s ease;
+    gap: 30px;
+}
+
+.img-sobre img:hover {
+    transform: scale(1.05);
+}
+
+.txt-sobre {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* ESTILO DO PORTFÓLIO */
+
+section.port{
+    padding: 100px 10%;
+
+}
+
+section.port h2{
+    color: #fff;
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 30px;
+
+
+}
+section.port h2 span{
+    color:#a864bd
+}
+
+section.port .flex{
+    gap: 80px;
+    margin-top: 60px;
+}
+
+.img-port{
+    width: 360px;
+    height: 660px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+}
+
+.img-port:hover{
+    background-position: 100% 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #070707e1;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transition: .5s;
+
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+/* Estilo da seção de mensagens */
+section.mensagens {
+    background: #000; /* fundo escuro */
+}
+
+.mensagens .flex {
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.texto-mensagens h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.4em;
+}
+
+.texto-mensagens span {
+    color: #b22cdb; 
+}
+
+.card-mensagem {
+    background: #d996f8;
+    padding: 80px;
+    border-radius: 12px;
+    width: 100%;          /* ocupa toda a largura disponível */
+    max-width: 650px;      /* remove limite de 650px */
+    color: #1b0a2a;
+    font-size: 16px;
+    line-height: 1.6em;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.05);
+}
+.card-mensagem .autor {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-mensagem .paginacao {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.card-mensagem .dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    margin: 0 4px;
+    border-radius: 100%;
+    background: #b07ac9;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-mensagem .dot.ativo {
+    background: #a864bd;
+}
+
+/* Responsivo */
+@media screen and (max-width: 1020px) {
+    .mensagens .flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .texto-mensagens h2 {
+        font-size: 22px;
+    }
+
+    .card-mensagem {
+        max-width: 100%;
+    }
+}
+
+
+/* Estilo do formulário  */
+
+section.formulario{
+    padding: 80px 4%;
+}
+
+form{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input, form textarea{
+    width: 100%;
+    background-color: #1f1e1e;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+form textarea{
+    resize: none;
+    max-height: 200px;
+}
+
+form .btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input{
+    width: 120px;
+    background-color: #a864bd;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .2s;
+}
+
+form .btn-enviar input:hover{
+    box-shadow: 0px 0px 8px #9567a388;
+    transform: scale(1.05);
+}
+
+/* Estilo do Rodapé */
+
+/* ==== RODAPÉ MODERNO ==== */
+footer {
+  background-color: #0d0d0d;
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+  border-top: 1px solid #9567a3;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 50px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+.footer-logo img:hover {
+  transform: scale(1.05);
+}
+
+.btn-social {
+  margin: 5px 0;
+}
+
+.btn-social a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 20px;
+  color: #fff;
+  background: #a864bd34;
+  padding: 10px;
+  border-radius: 10%;
+  transition: 0.3s;
+}
+
+.btn-social a:hover {
+  background: #fff;
+  color: #a864bd;
+  transform: scale(1.1);
+}
+
+.footer-info {
+  font-size: 14px;
+  margin-top: 15px;
+}
+.footer-info a {
+  color: #a864bd;
+  font-weight: bold;
+  text-decoration: none;
+}
+.footer-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+  .footer-social a {
+    font-size: 20px;
+    margin: 0 8px;
+  }
+  .footer-info {
+    font-size: 12px;
+  }
+}
+
+
+
+@media screen and (max-width: 1020px){
+        /* Classes Gerais */
+        .flex{
+            flex-direction: column;
+        
+        }
+        .topo-do-site .flex{
+            flex-direction: column-reverse;
+        }
+        .menu-mobile.abrir-menu {
+            width: 70%;
+        }       
+        
+        /*Topo do site*/
+        section.topo-do-site {
+            padding: 0; /* Ensures the section takes up the full width */
+        }
+
+        .topo-do-site .img-topo-site {
+            height: 80vh; /* Adjust for smaller screens */
+        }
+        
+        .topo-do-site h1 {
+            font-size: 30px;
+            line-height: 35px;
+        }
+
+        .topo-do-site h2 {
+            font-size: 20px;
+        }
+
+        /*SOBRE*/
+        section.sobre{
+            padding: 80px 8%;
+           
+        }
+        .sobre .txt-sobre h2{
+            font-size: 34px;
+            line-height: 35px;
+        }
+         /*Portfolio */
+         .port .flex{
+            align-items: center;
+            justify-content: center;
+        } 
+        /*Rodapé*/
+        footer .flex{
+            gap: 20px;
+        }
+        
+        footer .line-footer{
+            text-align: center;
+        } 
+        .logo-footer img{
+            width: 90px;
+        }
+        
+    }
+
+/* ===== AJUSTES DE RESPONSIVIDADE ADICIONAIS ===== */
+
+/* Telas grandes */
+@media screen and (min-width: 1280px) {
+  .interface {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .topo-do-site .txt-topo-do-site {
+    width: 45%;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 15px 30px;
+  }
+
+  .topo-do-site .txt-topo-do-site {
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .topo-do-site h1 {
+    font-size: 40px;
+  }
+
+  .topo-do-site h2 {
+    font-size: 22px;
+  }
+
+  .img-port {
+    width: 300px;
+    height: 400px;
+  }
+
+  .especialidades .flex,
+  .port .flex,
+  .sobre .flex {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Celulares médios */
+@media screen and (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+
+  .menu-mobile {
+    width: 75%;
+    max-width: 280px;
+  }
+
+  .topo-do-site .txt-topo-do-site {
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .img-port {
+    width: 90%;
+    height: 250px;
+  }
+
+  .especialidades .flex {
+    gap: 40px;
+  }
+
+  .img-sobre img {
+    width: 90%;
+    height: auto;
+  }
+
+  form {
+    width: 100%;
+    padding: 0 5%;
+  }
+
+  form input, form textarea {
+    font-size: 16px;
+  }
+
+  .card-mensagem {
+    padding: 40px 25px;
+  }
+}
+
+/* ===== AJUSTES DE RESPONSIVIDADE ADICIONAIS ===== */
+
+/* Telas grandes */
+@media screen and (min-width: 1280px) {
+  .interface {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .topo-do-site .txt-topo-do-site {
+    width: 45%;
+  }
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 15px 30px;
+  }
+
+  .topo-do-site .txt-topo-do-site {
+    width: 80%;
+    left: 22%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .topo-do-site h1 {
+    font-size: 40px;
+  }
+
+  .topo-do-site h2 {
+    font-size: 22px;
+  }
+
+  .img-port {
+    width: 300px;
+    height: 400px;
+  }
+
+  .especialidades .flex,
+  .port .flex,
+  .sobre .flex {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Celulares médios */
+
+@media screen and (max-width: 768px) {
+
+  /* Reduz a "aproximação" da imagem — efeito de afastamento */
+  .topo-do-site .img-topo-site img {
+    object-fit: contain;         /* Mostra mais da imagem */
+    object-position: center top; /* Centraliza o rosto e mostra o corpo */
+   
+  }
+
+  .topo-do-site {
+    height: 80vh; /* Ajusta a altura total da seção para a nova escala */
+  }
+
+  /* Posiciona o texto mais abaixo do rosto */
+  .topo-do-site .txt-topo-do-site {
+    top: auto;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+  }
+
+  /* Centraliza e aproxima os títulos das seções seguintes */
+  section.especialidades,
+  section#conhecimentos {
+    padding-top: 30px;  /* Reduz a distância do topo */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  /* Ajuste de espaçamento entre as seções */
+  section.especialidades {
+    margin-top: -40px; /* Remove o “vazio” entre o topo e a seção */
+  }
+
+  /* Ajuste de título */
+  h2.titulo {
+    text-align: center;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+
+  /* Garante espaçamento equilibrado nas caixas */
+  .especialidades .flex {
+    gap: 40px;
+    justify-content: center;
+  }
+}
